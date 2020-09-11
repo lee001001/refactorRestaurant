@@ -1,6 +1,9 @@
 const express = require('express')
+const app = express()
 const mongoose = require('mongoose') // 載入 mongoose
 const exphbs = require('express-handlebars')
+
+const Restaurant = require('./models/restaurant')
 const port = 3000
 
 mongoose.connect('mongodb://localhost/restaurant-list', {
@@ -19,14 +22,15 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
-const app = express()
-
-app.get('/', (req, res) => {
-  res.render('index')
-})
-
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
+
+app.get('/', (req, res) => {
+  Restaurant.find()
+    .lean()
+    .then((restaurants) => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
+})
 
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`)
