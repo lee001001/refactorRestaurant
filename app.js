@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose') // 載入 mongoose
 const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
 
 const Restaurant = require('./models/restaurant')
 const port = 3000
@@ -25,11 +26,34 @@ db.once('open', () => {
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
+app.use(bodyParser.urlencoded({ extended: true }))
+
 app.get('/', (req, res) => {
   Restaurant.find()
     .lean()
     .then((restaurants) => res.render('index', { restaurants }))
     .catch(error => console.error(error))
+})
+
+// set  NEW ROUTE
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
+})
+
+// Creat funcation
+app.post('/restaurants', (req, res) => {
+  return Restaurant.create(req.body)
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+// Set detail Route
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('detail', { restaurant }))
+    .catch(error => console.log(error))
 })
 
 app.listen(port, () => {

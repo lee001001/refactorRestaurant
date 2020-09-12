@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const restaurantSchema = new Schema({
+  id: {
+    type: Number
+  },
   name: {
     type: String, // 資料型別是字串
     required: true // 這是個必填欄位
@@ -13,32 +16,32 @@ const restaurantSchema = new Schema({
     required: false // 這是個必填欄位
   },
   category: {
-    type: String, // 資料型別是字串
-    required: true // 這是個必填欄位
+    type: String,
+    required: true
   },
   image: {
-    type: String, // 資料型別是字串
-    required: true // 這是個必填欄位
+    type: String,
+    required: true
   },
   location: {
-    type: String, // 資料型別是字串
-    required: false // 這是個必填欄位
+    type: String,
+    required: false
   },
   phone: {
-    type: Number, // 資料型別是字串
-    required: false // 這是個必填欄位
+    type: Number,
+    required: false
   },
   google_map: {
-    type: String, // 資料型別是URL
-    required: false // 這是個必填欄位
+    type: String,
+    required: false
   },
   rating: {
-    type: Number, // 資料型別是數字
-    required: false // 這是個必填欄位
+    type: Number,
+    required: true
   },
   description: {
-    type: String, // 資料型別是字串
-    required: false // 這是個必填欄位
+    type: String,
+    required: false
   }
 })
 
