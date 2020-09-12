@@ -45,6 +45,10 @@
 
       <div class="card-footer mb-3 text-right">
         <a class="btn btn-info" href="/restaurants/{{restaurant._id}}/edit">edit</a>
+
+        <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
+          <button type="submit" class="btn btn-info">delete</button>
+        </form>
       </div>
     </div>
   </div>
