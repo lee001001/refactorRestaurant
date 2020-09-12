@@ -56,6 +56,28 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// set edit route
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('edit', { restaurant }))
+    .catch(error => console.log(error))
+})
+
+// set edit post route
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  const requestBody = req.body
+  return Restaurant.findById(id)
+    .then((restaurant) => {
+      restaurant = Object.assign(restaurant, requestBody)
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log(error))
+})
+
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`)
 })

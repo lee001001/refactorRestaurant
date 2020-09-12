@@ -12,36 +12,28 @@ const restaurantSchema = new Schema({
     required: true // 這是個必填欄位
   },
   name_en: {
-    type: String, // 資料型別是字串
-    required: false // 這是個必填欄位
+    type: String // 資料型別是字串
   },
   category: {
-    type: String,
-    required: true
+    type: String
   },
   image: {
-    type: String,
-    required: true
+    type: String
   },
   location: {
-    type: String,
-    required: false
+    type: String
   },
   phone: {
-    type: Number,
-    required: false
+    type: String
   },
   google_map: {
-    type: String,
-    required: false
+    type: String
   },
   rating: {
-    type: Number,
-    required: true
+    type: Number
   },
   description: {
-    type: String,
-    required: false
+    type: String
   }
 })
 
