@@ -87,6 +87,18 @@ app.post('/restaurants/:id/delete', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// set search route
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  Restaurant.find() // 挖出資料庫所有資料
+    .lean()
+    .then(restaurants => {
+      const keyRestaurants = restaurants.filter(restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase))
+      res.render('index', { restaurants: keyRestaurants })
+    })
+    .catch(error => console.error(error))
+})
+
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`)
 })
