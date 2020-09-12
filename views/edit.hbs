@@ -1,5 +1,5 @@
 <div class="container mx-auto p-5 my-5" style="color:#f80101; background:#fce2cf; border-radius:8px;">
-  <form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
+  <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
     <!-- 餐廳中文名稱 -->
     <div class="form-group row">
       <label for="name" class="col-sm-2 col-form-label">餐廳名字</label>

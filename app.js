@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose') // 載入 mongoose
+const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 const Restaurant = require('./models/restaurant')
 const port = 3000
@@ -27,6 +28,8 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
   Restaurant.find()
@@ -66,7 +69,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 // set edit post route
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const requestBody = req.body
   return Restaurant.findById(id)
@@ -79,7 +82,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 // set delete POST route
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then((restaurant) => restaurant.remove())
@@ -88,7 +91,7 @@ app.post('/restaurants/:id/delete', (req, res) => {
 })
 
 // set search route
-app.get('/search', (req, res) => {
+app.delete('/search', (req, res) => {
   const keyword = req.query.keyword
   Restaurant.find() // 挖出資料庫所有資料
     .lean()

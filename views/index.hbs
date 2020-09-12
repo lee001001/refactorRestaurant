@@ -34,9 +34,9 @@
               </span>
             </div>
             <div class="card-footer mb-3 text-right">
-              <a class="btn btn-info" href="./restaurants/{{this._id}}/edit">edit</a>
+              <a class="btn btn-info" href="./restaurants/{{this._id}}?_method=PUT">edit</a>
               <a class="btn btn-info" href="./restaurants/{{this._id}}">detail</a>
-              <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+              <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
                 <button type="submit" class="btn btn-info">delete</button>
               </form>
             </div>
