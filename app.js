@@ -8,6 +8,8 @@ const methodOverride = require('method-override')
 const Restaurant = require('./models/restaurant')
 const port = 3000
 
+const routes = require('./routes')
+
 mongoose.connect('mongodb://localhost/restaurant-list', {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -31,64 +33,17 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(methodOverride('_method'))
 
+// set the routes
+app.use(routes)
+
+/*
 app.get('/', (req, res) => {
   Restaurant.find()
     .lean()
     .then((restaurants) => res.render('index', { restaurants }))
     .catch(error => console.error(error))
 })
-
-// set  NEW ROUTE
-app.get('/restaurants/new', (req, res) => {
-  return res.render('new')
-})
-
-// Creat funcation
-app.post('/restaurants', (req, res) => {
-  return Restaurant.create(req.body)
-    .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
-})
-
-// Set detail Route
-app.get('/restaurants/:id', (req, res) => {
-  const id = req.params.id
-  return Restaurant.findById(id)
-    .lean()
-    .then((restaurant) => res.render('detail', { restaurant }))
-    .catch(error => console.log(error))
-})
-
-// set edit route
-app.get('/restaurants/:id/edit', (req, res) => {
-  const id = req.params.id
-  return Restaurant.findById(id)
-    .lean()
-    .then((restaurant) => res.render('edit', { restaurant }))
-    .catch(error => console.log(error))
-})
-
-// set edit post route
-app.put('/restaurants/:id', (req, res) => {
-  const id = req.params.id
-  const requestBody = req.body
-  return Restaurant.findById(id)
-    .then((restaurant) => {
-      restaurant = Object.assign(restaurant, requestBody)
-      return restaurant.save()
-    })
-    .then(() => res.redirect(`/restaurants/${id}`))
-    .catch(error => console.log(error))
-})
-
-// set delete POST route
-app.delete('/restaurants/:id', (req, res) => {
-  const id = req.params.id
-  return Restaurant.findById(id)
-    .then((restaurant) => restaurant.remove())
-    .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
-})
+*/
 
 // set search route
 app.delete('/search', (req, res) => {
