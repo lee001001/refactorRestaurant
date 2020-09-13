@@ -20,14 +20,6 @@ app.use(methodOverride('_method'))
 // set the routes
 app.use(routes)
 
-/*
-app.get('/', (req, res) => {
-  Restaurant.find()
-    .lean()
-    .then((restaurants) => res.render('index', { restaurants }))
-    .catch(error => console.error(error))
-})
-*/
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`)
 })
