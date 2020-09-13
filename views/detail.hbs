@@ -51,9 +51,9 @@
         </a>
 
 
-        <a class="btn btn-info m-2 btn-sm z-depth-0 my-4" href="/restaurants/{{restaurant._id}}?_method=PUT">edit</a>
+        <a class="btn btn-info m-2 btn-sm z-depth-0 my-4" href="/restaurants/{{restaurant._id}}/edit">edit</a>
 
-        <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
+        <form action="/restaurants/{{ restaurant._id }}?_method=DELETE" method="POST" style="display: inline;">
           <button type="submit" class="btn btn-info btn-sm z-depth-0 my-4">delete</button>
         </form>
 
