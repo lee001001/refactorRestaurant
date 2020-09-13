@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
-// 昇序排列asc
+// 升序排列asc
 router.get('/asc', (req, res) => {
   Restaurant.find()
     .lean()
@@ -20,7 +20,7 @@ router.get('/desc', (req, res) => {
     .catch((error) => console.log(error))
 })
 
-// 低到高排列asc
+// 升序排列asc分數
 router.get('/rating/asc', (req, res) => {
   Restaurant.find()
     .lean()
@@ -29,7 +29,7 @@ router.get('/rating/asc', (req, res) => {
     .catch((error) => console.log(error))
 })
 
-// 高到低排列desc
+// 排列desc
 router.get('/rating/desc', (req, res) => {
   Restaurant.find()
     .lean()
