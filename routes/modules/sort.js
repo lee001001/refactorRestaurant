@@ -20,7 +20,7 @@ router.get('/desc', (req, res) => {
     .catch((error) => console.log(error))
 })
 
-// 昇序排列asc
+// 低到高排列asc
 router.get('/rating/asc', (req, res) => {
   Restaurant.find()
     .lean()
@@ -29,7 +29,7 @@ router.get('/rating/asc', (req, res) => {
     .catch((error) => console.log(error))
 })
 
-// 降序排列desc
+// 高到低排列desc
 router.get('/rating/desc', (req, res) => {
   Restaurant.find()
     .lean()

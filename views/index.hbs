@@ -10,50 +10,67 @@
           <div class="input-group-append">
             <button type="submit" class="btn btn-major" id="search-button"><i class="fas fa-search"></i></button>
           </div>
-        </div>
 
-        <div class="dropdown show">
-          <a class="btn btn-light dropdown-toggle border-dark" href="#" role="button" id="dropdownMenuLink"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sort
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/sort/asc">A -> Z</a>
-            <a class="dropdown-item" href="/sort/desc">Z -> A</a>
-            <a class="dropdown-item" href="/sort/rating/asc">評分(低至高)</a>
-            <a class="dropdown-item" href="/sort/rating/desc">評分(高至低)</a>
-            {{!-- <a class="dropdown-item" href="/sort/category">類別</a> --}}
+          <div class="dropdown show">
+            <a class="btn btn-light dropdown-toggle border-dark" href="#" role="button" id="dropdownMenuLink"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sort
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="/sort/asc">A -> Z</a>
+              <a class="dropdown-item" href="/sort/desc">Z -> A</a>
+              <a class="dropdown-item" href="/sort/rating/asc">評分(低至高)</a>
+              <a class="dropdown-item" href="/sort/rating/desc">評分(高至低)</a>
+            </div>
           </div>
+
         </div>
       </form>
     </div>
   </div>
 </div>
+
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
+
         {{#each restaurants}}
         <a href="./restaurants/{{this._id}}" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{this.name}}</h6>
+
               <div class="restaurant-category mb-1">
                 <i class="fas fa-utensils pr-2"></i> {{this.category}}
               </div>
+
               <span class="badge badge-pill badge-danger font-weight-normal">
                 {{this.rating}}
                 <i class="fas fa-star fa-xs"></i>
               </span>
-            </div>
-            <div class="card-footer mb-3 text-right">
-              <a class="btn btn-info" href="./restaurants/{{this._id}}?_method=PUT">edit</a>
-              <a class="btn btn-info" href="./restaurants/{{this._id}}">detail</a>
-              <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-                <button type="submit" class="btn btn-info">delete</button>
-              </form>
+
+              <div class="mt-2">
+
+                <a href="./restaurants/{{this._id}}" class="m-2">
+                  <div class="btn btn-outline-info btn-sm z-depth-0 my-4" style="display: inline;">
+                    show</div>
+                </a>
+
+
+                <a href="./restaurants/{{this._id}}/edit" class="m-2">
+                  <div class="btn btn-outline-primary btn-sm z-depth-0 my-4" style="display: inline;">
+                    edit</div>
+                </a>
+
+                <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" class="m-2"
+                  style="display: inline;">
+                  <button type="submit" class="btn btn-outline-danger  btn-sm z-depth-0 my-4">delete</button>
+                </form>
+              </div>
+
             </div>
           </div>
         </a>

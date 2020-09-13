@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 
 //  const Restaurant = require('./models/restaurant')
 const port = 3000
+app.use(express.static('public'))
 
 const routes = require('./routes')
 require('./config/mongoose')

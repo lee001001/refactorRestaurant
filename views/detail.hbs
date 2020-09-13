@@ -43,12 +43,20 @@
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
         style="max-width: 600px;">
 
-      <div class="card-footer mb-3 text-right">
-        <a class="btn btn-info" href="/restaurants/{{restaurant._id}}?_method=PUT">edit</a>
+      <div class="card-footer mb-3 text-right bg-light">
+
+        <a href="/" class="m-2">
+          <div class="btn btn-outline-info btn-sm z-depth-0 my-4" style="display: inline;">
+            back</div>
+        </a>
+
+
+        <a class="btn btn-info m-2 btn-sm z-depth-0 my-4" href="/restaurants/{{restaurant._id}}?_method=PUT">edit</a>
 
         <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
-          <button type="submit" class="btn btn-info">delete</button>
+          <button type="submit" class="btn btn-info btn-sm z-depth-0 my-4">delete</button>
         </form>
+
       </div>
     </div>
   </div>
