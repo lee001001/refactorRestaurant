@@ -50,7 +50,7 @@ select name or rating to sort restaurants
 
 2. Get into the directory
 ```
-[~] $ cd Restaurant_List
+[~] $ cd restaurant_refactor
 ```
 
 3. Install packages
