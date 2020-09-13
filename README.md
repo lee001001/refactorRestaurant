@@ -55,11 +55,11 @@ select name or rating to sort restaurants
 
 3. Install packages
 ```
-[~/Restaurant_List] $ npm install
+[~/restaurant_refactor] $ npm install
 ```
 
 4. Run the project
 ```
-[~/Restaurant_List] $ npm run seed
-[~/Restaurant_List] $ npm run start
+[~/restaurant_refactor] $ npm run seed
+[~/restaurant_refactor] $ npm run start
 ```
