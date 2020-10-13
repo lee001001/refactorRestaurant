@@ -1,1 +1,22 @@
-<h3>註冊頁面</h3>
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h3 class="text-center mt-6">Login</h3>
+      <form action="/login" method="POST">
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <p class="lead mt-3">
+        No Account <a href="/users/register">Register</a>
+      </p>
+    </div>
+  </div>
