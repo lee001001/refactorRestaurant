@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('passport')
 const User = require('../../models/user')
 
 //  create a login router module
@@ -8,9 +9,10 @@ router.get('/login', (req, res) => {
 })
 
 // receive the value from login router
-router.post('/login', (req, res) => {
-
-})
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/users/login'
+}))
 
 // create a register router modulre
 router.get('/register', (req, res) => {
@@ -27,6 +29,7 @@ router.post('/register', (req, res) => {
       console.log('The User already register')
       res.render('register')
     } else {
+      // 如果沒有則回傳到資料庫
       return User.create({
         name,
         email,
