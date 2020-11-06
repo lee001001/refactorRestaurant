@@ -19,14 +19,14 @@ app.set('view engine', 'hbs')
 app.use(session({
   secret: 'ThisIsMySecret',
   resave: false,
-  saveUnitialized: true
+  saveUninitialized: true
 }))
 
 app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(methodOverride('_method'))
 
 usePassport(app)
+
 app.use((req, res, next) => {
   // 你可以在這裡 console.log(req.user) 等資訊來觀察
   res.locals.isAuthenticated = req.isAuthenticated()
