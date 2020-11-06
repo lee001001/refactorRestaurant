@@ -1,11 +1,11 @@
 <div class="container mx-auto p-5 my-5" style="color:#f80101; background:#fce2cf; border-radius:8px;">
-  <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
+  <form action="/restaurants/{{ restaurants._id }}?_method=PUT" method="POST">
     <!-- 餐廳中文名稱 -->
     <div class="form-group row">
       <label for="name" class="col-sm-2 col-form-label">餐廳名字</label>
       <div class="col-sm-10">
-        <input type="text" name="name" class="form-control" id="name" value="{{restaurant.name}}"
-          placeholder="{{restaurant.name}}" required>
+        <input type="text" name="name" class="form-control" id="name" value="{{restaurants.name}}"
+          placeholder="{{restaurants.name}}" required>
       </div>
     </div>
 
@@ -13,7 +13,7 @@
     <div class="form-group row">
       <label for="name_en" class="col-sm-2 col-form-label">餐廳英文名字 </label>
       <div class="col-sm-10">
-        <input type="text" name="name_en" class="form-control" id="name_en" value="{{restaurant.name_en}}">
+        <input type="text" name="name_en" class="form-control" id="name_en" value="{{restaurants.name_en}}">
       </div>
     </div>
 
@@ -21,7 +21,7 @@
     <div class="form-group row">
       <label for="category" class="col-sm-2 col-form-label">餐廳種類 </label>
       <div class="col-sm-10">
-        <input type="text" name="category" class="form-control" id="category" value="{{restaurant.category}}">
+        <input type="text" name="category" class="form-control" id="category" value="{{restaurants.category}}">
       </div>
     </div>
 
@@ -29,7 +29,7 @@
     <div class="form-group row">
       <label for="image" class="col-sm-2 col-form-label">餐廳圖片</label>
       <div class="col-sm-10">
-        <input type="url" name="image" class="form-control" id="image" value="{{restaurant.image}}">
+        <input type="url" name="image" class="form-control" id="image" value="{{restaurants.image}}">
       </div>
     </div>
 
@@ -37,7 +37,7 @@
     <div class="form-group row">
       <label for="location" class=" col-sm-2 col-form-label">地址 </label>
       <div class="col-sm-10">
-        <input type="text" name="location" class="form-control" id="location" value="{{restaurant.location}}">
+        <input type="text" name="location" class="form-control" id="location" value="{{restaurants.location}}">
       </div>
     </div>
 
@@ -45,7 +45,7 @@
     <div class="form-group row">
       <label for="phone" class="col-sm-2 col-form-label">餐廳電話 </label>
       <div class="col-sm-10">
-        <input type="text" name="phone" class="form-control" id="phone" value="{{restaurant.phone}}">
+        <input type="text" name="phone" class="form-control" id="phone" value="{{restaurants.phone}}">
       </div>
     </div>
 
@@ -53,7 +53,7 @@
     <div class="form-group row">
       <label for="google_map" class="col-sm-2 col-form-label">google_map </label>
       <div class="col-sm-10">
-        <input type="url" name="google_map" class="form-control" id="google_map" value="{{restaurant.google_map}}">
+        <input type="url" name="google_map" class="form-control" id="google_map" value="{{restaurants.google_map}}">
       </div>
     </div>
 
@@ -62,7 +62,7 @@
       <label for="rating" class="col-sm-2 col-form-label">rating </label>
       <div class="col-sm-10">
         <input type="number" name="rating" class="form-control" id="rating" min="1" max="5" step="0.1"
-          value="{{restaurant.rating}}" required>
+          value="{{restaurants.rating}}" required>
       </div>
     </div>
 
@@ -71,7 +71,7 @@
       <label for="description" class="col-sm-2 col-form-label">餐廳簡介</label>
       <div class="col-sm-10">
         <textarea class="form-control" name="description" id="description" cols="48"
-          rows="3">{{restaurant.description}}</textarea>
+          rows="3">{{restaurants.description}}</textarea>
       </div>
     </div>
 

@@ -1,26 +1,18 @@
 // 引用 Express 與 Express 路由器
 const express = require('express')
 const router = express.Router()
+const { authenticator } = require('../middleware/auth') // 掛載 middleware
 
-// 準備引入home模組
 const home = require('./modules/home')
-router.use('/', home)
-
-// 引入restaurants模組
 const restaurants = require('./modules/restaurants')
-router.use('/restaurants', restaurants)
-
-// 引入search模組
-const search = require('./modules/search')
-router.use('/search', search)
-
-// 引入sort模組
-const sort = require('./modules/sort')
-router.use('/sort', sort)
-
-// 引入login模組
 const users = require('./modules/users')
-router.use('/users', users)
+const search = require('./modules/search')
+const sort = require('./modules/sort')
 
+router.use('/users', users)
+router.use('/restaurants', authenticator, restaurants)
+router.use('/search', authenticator, search)
+router.use('/sort', authenticator, sort)
+router.use('/', authenticator, home)
 // 匯出路由器
 module.exports = router
