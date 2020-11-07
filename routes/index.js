@@ -7,9 +7,11 @@ const home = require('./modules/home')
 const restaurants = require('./modules/restaurants')
 const users = require('./modules/users')
 const search = require('./modules/search')
+const auth = require('./modules/auth')
 
-router.use('/users', users)
 router.use('/restaurants', authenticator, restaurants)
+router.use('/users', users)
+router.use('/auth', auth)
 router.use('/search', authenticator, search)
 router.use('/', authenticator, home)
 // 匯出路由器

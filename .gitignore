@@ -4,6 +4,7 @@ Icon?
 .-*
 
 # npm
-node_modules
+/node_modules
 *.log
 *.gz
+.env
