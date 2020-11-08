@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs')
 
 const Restaurant = require('../restaurant')
 const restaurantList = require('../restaurant.json').results
-
 const User = require('../user')
 const db = require('../../config/mongoose')
 const SEED_USERS = [{
