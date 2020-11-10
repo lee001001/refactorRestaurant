@@ -27,7 +27,7 @@ db.once('open', () => {
       return User.insertMany(SEED_USERS)
     })
     .then(users => {
-      return Promise.all(restaurantList.map((restaurants, index) => {
+      return Restaurant.insertMany(restaurantList.map((restaurants, index) => {
         if (index < 3) {
           restaurants.userId = users[0]._id
           return Restaurant.create(Object.assign({}, restaurants))
