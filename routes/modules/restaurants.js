@@ -62,4 +62,17 @@ router.delete('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// set search route
+router.get('/', (req, res) => {
+  const keyword = req.query.keyword
+  const userId = req.user._id
+  Restaurant.find({ userId }) // 挖出資料庫所有資料
+    .lean()
+    .then(restaurants => {
+      const keyRestaurants = restaurants.filter(restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase()))
+      res.render('index', { restaurants: keyRestaurants, keyword })
+    })
+    .catch(error => console.error(error))
+})
+
 module.exports = router
